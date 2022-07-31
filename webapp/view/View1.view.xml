@@ -1,0 +1,43 @@
+<mvc:View controllerName="project1.project1.controller.View1"
+    xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+    xmlns="sap.m">
+    <Page id="page" title="{i18n>title}">
+          <content>
+                <Table id="main_table" headerText="{i18n>}" items="{/products}">
+                    <columns>
+                        <Column id="main_column_id">
+                            <Text id="main_text_id" text="{i18n>id}"/>
+                        </Column>
+                        <Column id="main_column_name">
+                            <Text id="main_text_name" text="{i18n>name}"/>
+                        </Column>
+                        <Column id="main_column_description">
+                            <Text id="main_text_description" text="{i18n>description}"/>
+                        </Column>
+                          <Column id="main_column_price">
+                            <Text id="main_text_price" text="{i18n>price}"/>
+                        </Column>
+                          <Column id="main_column_stock">
+                            <Text id="main_text_stock" text="{i18n>stock}"/>
+                        </Column>
+                          <Column id="main_column_delete">
+                            <Text id="main_text_delete" text="{i18n>delete}"/>
+                        </Column>
+                    </columns>
+                    <items>
+                    <ColumnListItem id="_IDGenColumnListItem1" type="Navigation" 
+                      press="onListItemPressed">
+                        <cells>
+                        <ObjectIdentifier id="_IDGenObjectIdentifier1" title="{id}"/>
+                        <Text id="text_name" text="{name}"/>
+                        <Text id="text_description" text="{description}"/>
+                        <Text id="text_price" text="{price}"/>
+                        <Text id="text_stock" text="{stock}"/>
+                        <Button id="button_id" icon="sap-icon://delete" type="Reject" press="onDeleteButtonPressed"/>
+                        </cells>
+                    </ColumnListItem>
+                    </items>
+                </Table>
+            </content>
+    </Page>
+</mvc:View>
