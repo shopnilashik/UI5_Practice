@@ -1,0 +1,17 @@
+<mvc:View controllerName="project1.project1.controller.Details"
+    xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+    xmlns="sap.m">
+    <Page id="page" title="{i18n>title}" showNavButton="true" navButtonPress="onNavButton">
+          <content>
+           <HBox id="_IDGenHBox1">
+           <items>
+            <Label id="display_label_id" text="Product Id" 
+                labelFor="display_text_id"/>
+                
+                <Text id="display_text_id" text="{id}"/>
+           </items>
+               
+            </HBox>
+            </content>
+    </Page>
+</mvc:View>

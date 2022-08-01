@@ -4,6 +4,14 @@
     <Page id="page" title="{i18n>title}">
           <content>
                 <Table id="main_table" headerText="{i18n>}" items="{/products}">
+                <headerToolbar id="headerToolbar">
+                    <OverflowToolbar id="_IDGenOverflowToolbar1">
+                        <Title id="_IDGenTitle1" text="{i18n>table.title}"/>
+                        <ToolbarSpacer id="_IDGenToolbarSpacer1"/>
+                        <Button id="main_button_create" icon="sap-icon://add" 
+                        type="Accept" text="{i18n>create}" press="onCreatePressed"/>
+                    </OverflowToolbar>
+                </headerToolbar>
                     <columns>
                         <Column id="main_column_id">
                             <Text id="main_text_id" text="{i18n>id}"/>

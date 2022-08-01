@@ -69,7 +69,7 @@
           "bundleName": "project1.project1.i18n.i18n"
         }
       },
-      "todo": {
+      "": {
         "type": "sap.ui.model.json.JSONModel",
         "uri": "model/products.json"
       }
@@ -94,8 +94,13 @@
       "routes": [
         {
           "name": "RouteView1",
-          "pattern": ":?query:",
+          "pattern": "",
           "target": ["TargetView1"]
+        },
+        {
+          "name": "details",
+          "pattern": "details/{id}",
+          "target": ["TargetDetails"]
         }
       ],
       "targets": {
@@ -105,6 +110,13 @@
           "clearControlAggregation": false,
           "viewId": "View1",
           "viewName": "View1"
+        },
+        "TargetDetails": {
+          "viewType": "XML",
+          "transition": "slide",
+          "clearControlAggregation": false,
+          "viewId": "Details",
+          "viewName": "Details"
         }
       }
     },
