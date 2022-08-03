@@ -1,7 +1,7 @@
 <mvc:View controllerName="project1.project1.controller.View1"
     xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
     xmlns="sap.m">
-    <Page id="page" title="{i18n>title}">
+    <Page id="page" title="">
           <content>
                 <Table id="main_table" headerText="{i18n>}" items="{/products}">
                 <headerToolbar id="headerToolbar">
@@ -9,7 +9,7 @@
                         <Title id="_IDGenTitle1" text="{i18n>table.title}"/>
                         <ToolbarSpacer id="_IDGenToolbarSpacer1"/>
                         <Button id="main_button_create" icon="sap-icon://add" 
-                        type="Accept" text="{i18n>create}" press="onCreatePressed"/>
+                        type="Accept" text="{i18n>create}" press=".onOpenDialog"/>
                     </OverflowToolbar>
                 </headerToolbar>
                     <columns>
@@ -33,7 +33,7 @@
                         </Column>
                     </columns>
                     <items>
-                    <ColumnListItem id="_IDGenColumnListItem1" type="Navigation" 
+                    <ColumnListItem id="ListItem1" type="Navigation" 
                       press="onListItemPressed">
                         <cells>
                         <ObjectIdentifier id="_IDGenObjectIdentifier1" title="{id}"/>

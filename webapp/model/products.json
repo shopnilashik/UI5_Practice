@@ -1,45 +1,45 @@
 {
   "products": [
     {
-      "id": "1",
+      "id": "R6dOMQSa",
       "name": "Iphone 13",
       "description": "128 GB",
       "price": "87000",
       "stock": "30"
     },
     {
-      "id": "2",
+      "id": "CtDMgtVY",
       "name": "Iphone 13 Pro",
       "description": "128 GB",
       "price": "11000",
       "stock": "20"
     },
     {
-      "id": "3",
+      "id": "bPevBnjY",
       "name": "Iphone 11 Pro Max",
       "description": "512 GB",
       "price": "123000",
       "stock": "35"
     },
     {
-      "id": "4",
+      "id": "oVm1ro5D",
       "name": "MacBook Pro",
       "description": "M1 256 GB",
       "price": "145000",
       "stock": "25"
     },
     {
-      "id": "5",
+      "id": "6yvzlFug",
       "name": "Macbook Air",
       "description": "M1 128 GB",
-      "price": "13700",
+      "price": "137000",
       "stock": "30"
     },
     {
-      "id": "6",
+      "id": "e2dnEJP4",
       "name": "MacBook Pro",
       "description": "M2 512 GB",
-      "price": "18900",
+      "price": "189000",
       "stock": "35"
     }
   ]

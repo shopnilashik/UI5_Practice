@@ -1,17 +1,46 @@
 <mvc:View controllerName="project1.project1.controller.Details"
-    xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+    xmlns:mvc="sap.ui.core.mvc" displayBlock="true" xmlns:f="sap.ui.layout.form"
     xmlns="sap.m">
-    <Page id="page" title="{i18n>title}" showNavButton="true" navButtonPress="onNavButton">
-          <content>
-           <HBox id="_IDGenHBox1">
-           <items>
-            <Label id="display_label_id" text="Product Id" 
+    <Page id="page" title="{i18n>details.title}" showNavButton="true" navButtonPress="onNavButton">
+           <f:SimpleForm id="display_simpleform"
+                editable="true"
+                layout="ResponsiveGridLayout"
+                title="{i18n>title}"
+                labelSpanXL="3"
+                labelSpanL="3"
+                labelSpanM="3"
+                labelSpanS="12"
+                adjustLabelSpan="false"
+                emptySpanXL="4"
+                emptySpanL="4"
+                emptySpanM="4"
+                emptySpanS="0"
+                columnsXL="1"
+                columnsL="1"
+                columnsM="1"
+                singleContainerFullSize="false" >
+                <f:content>
+                <Label id="display_label_id" text="{i18n>id}" 
                 labelFor="display_text_id"/>
-                
                 <Text id="display_text_id" text="{id}"/>
-           </items>
-               
-            </HBox>
-            </content>
+
+                <Label id="display_label_name" text="{i18n>name}" 
+                labelFor="display_text_name"/>
+                <Text id="display_text_name" text="{name}"/>
+
+                <Label id="display_label_description" text="{i18n>description}" 
+                labelFor="display_text_description"/>
+                <Text id="display_text_description" text="{description}"/>
+
+                <Label id="display_label_price" text="{i18n>price}" 
+                labelFor="display_text_price"/>
+                <Text id="display_text_price" text="{price}"/>
+
+                <Label id="display_label_stock" text="{i18n>stock}"
+                labelFor="display_text_stock"/>
+                <Text id="display_text_stock" text="{stock}"/>
+
+                </f:content>
+            </f:SimpleForm>
     </Page>
 </mvc:View>
