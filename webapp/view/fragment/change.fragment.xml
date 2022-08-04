@@ -4,26 +4,26 @@
    xmlns:core="sap.ui.core" xmlns:c="sap.ui.core" xmlns:l="sap.ui.layout" xmlns:ui="sap.ui" 
    xmlns:f="sap.ui.layout.form">
    <Dialog
-      id="helloDialog" title="Add Product" contentHeight="30%"
+      id="helloDialog" title="Edit Product" contentHeight="30%"
        contentWidth="73%">
    
         <Label id="display_label_name" text="{i18n>name}" 
           labelFor="display_text_name"/>
-          <Input id="input_name" />
-        
-        <Label id="display_label_description" text="{i18n>description}" 
+          <Input id="input_name" value="{editDataModel>/name}"/>
+          
+         <Label id="display_label_description" text="{i18n>description}" 
           labelFor="display_text_"/>
-          <Input id="input_description" />
+          <Input id="input_description" value="{editDataModel>/description}"/>
 
         <Label id="display_label_price" text="{i18n>price}" 
           labelFor="display_text_price"/>
-          <Input id="input_price" />
+          <Input id="input_price" value="{editDataModel>/price}"/>
         
         <Label id="display_label_stock" text="{i18n>stock}" 
           labelFor="display_text_stock"/>
-          <Input id="input_stock" />
+          <Input id="input_stock" value="{editDataModel>/stock}"/> 
 
-      <Bar id="_IDGenBar1">
+     <Bar id="_IDGenBar1">
      
         <contentRight>
           <Button id="app_save_button" text="{i18n>save}" type="Accept"

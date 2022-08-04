@@ -14,6 +14,9 @@ sap.ui.define(
         },
         _onPatternMatched: function (oEvent) {
           // var id = oEvent.getParameter("arguments").id;
+          // var test =   oEvent.getSource().getBindingContext().getObject();
+          // console.log(test);
+          
          
           this.getView().bindElement({
             path:
@@ -21,7 +24,7 @@ sap.ui.define(
               window.decodeURIComponent(oEvent.getParameter("arguments").id),
           });
 
-          console.log(this.getView().getModel());
+          // console.log(this.getView().getModel());
           // let test = this.getView().bindElement({
           //   path:
           //     "/" +

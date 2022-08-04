@@ -3,7 +3,7 @@
     xmlns="sap.m">
     <Page id="page" title="">
           <content>
-                <Table id="main_table" headerText="{i18n>}" items="{/products}">
+                <Table id="main_table" headerText="{i18n>}" items="{/products}" editable="true">
                 <headerToolbar id="headerToolbar">
                     <OverflowToolbar id="_IDGenOverflowToolbar1">
                         <Title id="_IDGenTitle1" text="{i18n>table.title}"/>
@@ -28,8 +28,8 @@
                           <Column id="main_column_stock">
                             <Text id="main_text_stock" text="{i18n>stock}"/>
                         </Column>
-                          <Column id="main_column_delete">
-                            <Text id="main_text_delete" text="{i18n>delete}"/>
+                          <Column id="main_column_action">
+                            <Text id="main_text_action" text="{i18n>action}"/>
                         </Column>
                     </columns>
                     <items>
@@ -37,11 +37,28 @@
                       press="onListItemPressed">
                         <cells>
                         <ObjectIdentifier id="_IDGenObjectIdentifier1" title="{id}"/>
-                        <Text id="text_name" text="{name}"/>
-                        <Text id="text_description" text="{description}"/>
-                        <Text id="text_price" text="{price}"/>
-                        <Text id="text_stock" text="{stock}"/>
+                        <VBox>
+                        <Text id="text_name" text="{name}" visible="true"/> 
+                        <Input id="Input_name" value="{name}" visible="false"/> 
+                        </VBox>
+                        <VBox>
+                        <Text id="text_description" text="{description}" visible="true"/> 
+                        <Input id="Input_description" value="{description}" visible="false"/> 
+                        </VBox>
+                        <VBox>
+                        <Text id="text_price" text="{price}" visible="true"/> 
+                        <Input id="Input_price" value="{price}" visible="false"/> 
+                        </VBox>
+                        <VBox>
+                        <Text id="text_stock" text="{stock}" visible="true"/> 
+                        <Input id="Input_stock" value="{stock}" visible="false"/> 
+                        </VBox>
+                        <HBox>
                         <Button id="button_id" icon="sap-icon://delete" type="Reject" press="onDeleteButtonPressed"/>
+                        <Button id="button_id_edit" icon="sap-icon://edit" type="Accept" press="onEditButtonPressed" visible="{editModel>/editBtn}"/>
+                        <Button id="button_id_save" icon="sap-icon://save" type="Accept" press="_onEditSavePressed" visible="{editModel>/saveBtn}"/>
+                        </HBox>
+
                         </cells>
                     </ColumnListItem>
                     </items>
