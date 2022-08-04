@@ -55,8 +55,6 @@
                         </VBox>
                         <HBox>
                         <Button id="button_id" icon="sap-icon://delete" type="Reject" press="onDeleteButtonPressed"/>
-                        <Button id="button_id_edit" icon="sap-icon://edit" type="Accept" press="onEditButtonPressed" visible="{editModel>/editBtn}"/>
-                        <Button id="button_id_save" icon="sap-icon://save" type="Accept" press="_onEditSavePressed" visible="{editModel>/saveBtn}"/>
                         </HBox>
 
                         </cells>
