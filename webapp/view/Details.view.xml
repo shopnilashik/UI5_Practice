@@ -1,5 +1,5 @@
 <mvc:View controllerName="project1.project1.controller.Details"
-    xmlns:mvc="sap.ui.core.mvc" displayBlock="true" xmlns:f="sap.ui.layout.form"
+    xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" displayBlock="true" xmlns:f="sap.ui.layout.form"
     xmlns="sap.m">
     <Page id="page">
             <customHeader>
@@ -66,10 +66,20 @@
                 <Text id="display_text_stock" text="{stock}" visible="{editModel>/textMode}"/>
                 <Input id="input_stock" value="{stock}" visible="{editModel>/editmode}"/>
                 </VBox>
+
+                 <Label id="display_label_supplier" text="{i18n>supplier}"
+                labelFor="display_text_supplier"/>
+                 <VBox id="_IDGenVBox4">
+                <Text id="display_text_supplier" text="{supplier}" visible="{editModel>/textMode}"/>
+                <ComboBox id="input_supplier"
+				items="{suppliers>/supplier}" value="{supplier}" visible="{editModel>/editmode}">
+				<core:Item id="_IDGenItem1" key="{suppliers>id}" text="{suppliers>supplier_name}"  />
+			  </ComboBox>
+                </VBox>
                 </f:content>
             </f:SimpleForm>
              <footer>
-                <Bar id="_IDGenBar1">
+                <Bar id="_IDGenBar11">
                     <contentRight>
                         <Button id="app_save_button" text="{i18n>save}" type="Accept"
                 icon="sap-icon://save" press="onSavePressed"

@@ -16,7 +16,8 @@ sap.ui.define(
         let oEditModel = new JSONModel({
           editmode: false,
         });
-
+        var oSupplier = this.getView().getModel("suppliers");
+        console.log(oSupplier);
         this.getView().setModel(oEditModel, "editModel");
         this.oData = new JSONModel({
           id: "",
@@ -27,9 +28,7 @@ sap.ui.define(
         });
         this.getView().setModel(this.oData, "editDataModel");
       },
-      // onEditPressed: function(){
-      //       this._toggleEdit(true);
-      //   },
+      
 
       _toggleEdit: function (editStn, saveStn) {
         let oEditModel = this.getView().getModel("editModel");
@@ -50,6 +49,7 @@ sap.ui.define(
           description: data.description,
           price: data.price,
           stock: data.stock,
+          supplier: data.supplier,
         };
         var oModel = this.getOwnerComponent().getModel().getData();
         console.log(oModel);
@@ -70,20 +70,23 @@ sap.ui.define(
         var _description = this.byId("input_description");
         var _price = this.byId("input_price");
         var _stock = this.byId("input_stock");
+        var _supplier = this.byId("input_supplier");
         var name = _name.getValue();
         var description = _description.getValue();
         var price = _price.getValue();
         var stock = _stock.getValue();
+        var supplier = _supplier.getValue();
         var buf = new Uint8Array(6);
         window.crypto.getRandomValues(buf);
         var id = btoa(String.fromCharCode.apply(null, buf));
 
-        this.onCreate({ id, name, description, price, stock });
+        this.onCreate({ id, name, description, price, stock, supplier });
         id = "";
         _name.setValue("");
         _description.setValue("");
         _price.setValue("");
         _stock.setValue("");
+        _supplier.setValue("");
       },
       onDeleteButtonPressed: function (oEvent) {
         let oModel = this.getView().getModel();
@@ -141,10 +144,6 @@ sap.ui.define(
         var _description = this.byId("input_description");
         var _price = this.byId("input_price");
         var _stock = this.byId("input_stock");
-        //  _name.setValue("");
-        // _description.setValue("");
-        // _price.setValue("");
-        // _stock.setValue("");
         if (!this.pDialog) {
           this.pDialog = this.loadFragment({
             name: "project1.project1.view.fragment.create",

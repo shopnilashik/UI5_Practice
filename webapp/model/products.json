@@ -5,42 +5,48 @@
       "name": "Iphone 13",
       "description": "128 GB",
       "price": "87000",
-      "stock": "30"
+      "stock": "30",
+      "supplier":"New Gadget"
     },
     {
       "id": "CtDMgtVY",
       "name": "Iphone 13 Pro",
       "description": "128 GB",
       "price": "11000",
-      "stock": "20"
+      "stock": "20",
+      "supplier": "Pro Shop"
     },
     {
       "id": "bPevBnjY",
       "name": "Iphone 11 Pro Max",
       "description": "512 GB",
       "price": "123000",
-      "stock": "35"
+      "stock": "35",
+      "supplier": "New Gadget"
     },
     {
       "id": "oVm1ro5D",
       "name": "MacBook Pro",
       "description": "M1 256 GB",
       "price": "145000",
-      "stock": "25"
+      "stock": "25",
+      "supplier": "Apple Gadget"
     },
     {
       "id": "6yvzlFug",
       "name": "Macbook Air",
       "description": "M1 128 GB",
       "price": "137000",
-      "stock": "30"
+      "stock": "30",
+      "supplier": "Authentic Gadget"
     },
     {
       "id": "e2dnEJP4",
       "name": "MacBook Pro",
       "description": "M2 512 GB",
       "price": "189000",
-      "stock": "35"
+      "stock": "35",
+      "supplier": "Pro Shop"
     }
   ]
 }

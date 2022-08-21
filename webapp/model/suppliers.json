@@ -1,0 +1,20 @@
+{
+    "supplier":[
+      {
+        "id": "1",
+        "supplier_name": "New Gadget"
+      },
+      {
+        "id": "2",
+        "supplier_name": "Apple Gadget"
+      },
+      {
+        "id":"3",
+        "supplier_name":"Authentic Gadget"
+    },
+     {
+       "id": "4",
+       "supplier_name": "Pro Shop"
+     }
+    ]
+}

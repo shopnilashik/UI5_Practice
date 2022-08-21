@@ -72,6 +72,10 @@
       "": {
         "type": "sap.ui.model.json.JSONModel",
         "uri": "model/products.json"
+      },
+      "suppliers": {
+        "type": "sap.ui.model.json.JSONModel",
+        "uri": "model/suppliers.json"
       }
     },
     "resources": {

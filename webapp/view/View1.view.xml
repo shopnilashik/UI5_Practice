@@ -28,9 +28,13 @@
                           <Column id="main_column_stock">
                             <Text id="main_text_stock" text="{i18n>stock}"/>
                         </Column>
+                        <Column id="main_column_supplier">
+                            <Text id="main_text_supplier" text="{i18n>supplier}"/>
+                        </Column>
                           <Column id="main_column_action">
                             <Text id="main_text_action" text="{i18n>action}"/>
                         </Column>
+                        
                     </columns>
                     <items>
                     <ColumnListItem id="ListItem1" type="Navigation" 
@@ -39,19 +43,18 @@
                         <ObjectIdentifier id="_IDGenObjectIdentifier1" title="{id}"/>
                         <VBox>
                         <Text id="text_name" text="{name}" visible="true"/> 
-                        <Input id="Input_name" value="{name}" visible="false"/> 
                         </VBox>
                         <VBox>
                         <Text id="text_description" text="{description}" visible="true"/> 
-                        <Input id="Input_description" value="{description}" visible="false"/> 
                         </VBox>
                         <VBox>
                         <Text id="text_price" text="{price}" visible="true"/> 
-                        <Input id="Input_price" value="{price}" visible="false"/> 
                         </VBox>
                         <VBox>
-                        <Text id="text_stock" text="{stock}" visible="true"/> 
-                        <Input id="Input_stock" value="{stock}" visible="false"/> 
+                        <Text id="text_stock" text="{stock}" visible="true"/>
+                        </VBox>
+                         <VBox>
+                        <Text id="text_supplier" text="{supplier}" visible="true"/>
                         </VBox>
                         <HBox>
                         <Button id="button_id" icon="sap-icon://delete" type="Reject" press="onDeleteButtonPressed"/>
@@ -63,7 +66,7 @@
                 </Table>
             </content>
              <footer>
-                <Bar id="_IDGenBar1">
+                <Bar id="_IDGenBar112">
                     <contentRight>
                         <Button id="app_logout" text="Dashboard" type="Accept"
                          press="navToDashboard" />

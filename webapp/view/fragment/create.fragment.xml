@@ -22,6 +22,11 @@
           labelFor="display_text_stock"/>
           <Input id="input_stock" />
 
+      	<ComboBox id="input_supplier"
+				items="{suppliers>/supplier}">
+				<core:Item id="_IDGenItem1" key="{suppliers>id}" text="{suppliers>supplier_name}" />
+			  </ComboBox>
+
       <Bar id="_IDGenBar1">
      
         <contentRight>
