@@ -28,31 +28,32 @@ sap.ui.define(
           }
 
           var oRouter = sap.ui.core.UIComponent.getRouterFor(this);
-          oRouter
-            .getRoute("Login")
-            .attachPatternMatched(this._onPatternMatched, this);
-          this.getOwnerComponent()
-            .getRouter()
-            .getRouter("Login")
-            .attachPatternMatched(function () {
-              console.log("Im called");
-            }, this);
-          // var test1 = this.getView().getModel("oVisibleModel");
-          // console.log(test1);
+         this.getOwnerComponent()
+           .getRouter()
+           .getRoute("Dashboard")
+           .attachPatternMatched(this._onPatternMatched, this);
+          
         },
         onLogoutPress: function () {
           var oRouter = this.getOwnerComponent().getRouter();
           oRouter.navTo("Login");
           localStorage.setItem("role", "none");
           sessionStorage.setItem("role", "none");
-          // location.reload();
+      
         },
         _onPatternMatched: function () {
-          console.log("pattter mached");
+          this.user = sessionStorage.getItem("role");
+          if (this.user === "admin") { 
+            console.log("admin");
+            var oEditModel = this.getView().getModel("editModel");
+             oEditModel.setProperty("/editmode", true);
+          } else { 
+            console.log("other user");
+            var oEditModel = this.getView().getModel("editModel");
+            oEditModel.setProperty("/editmode", false);
+          }
         },
-        myFormatter: function (sName) {
-          return false;
-        },
+       
       }
     );
   }

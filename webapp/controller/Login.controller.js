@@ -34,8 +34,7 @@ sap.ui.define(
         this.getView().setModel(oVisibleModel, "oVisibleModel");
         this.getView().setModel(oUsers, "oUsersModel");
         var test = this.getView().getModel("oUsersModel");
-        // var test1 = this.getView().getModel("oVisibleModel");
-        // console.log(test1);
+       
         this.oData = test.getData();
         this.user = localStorage.getItem("username");
         this.user = sessionStorage.getItem("username");
@@ -45,11 +44,9 @@ sap.ui.define(
           oRouter.navTo("Routemain", {}, true);
         } else {
           console.log("User Found");
-          // var oRouter = this.getOwnerComponent().getRouter();
-          // oRouter.navTo("Dashboard", {}, true);
-          this.getOwnerComponent().getRouter().getRoute("Dashboard").attachPatternMatched(function () { 
-            console.log("Im called");
-          }, this);
+          var oRouter = this.getOwnerComponent().getRouter();
+          oRouter.navTo("Dashboard", {}, true);
+          
         }
         
       },
@@ -60,7 +57,6 @@ sap.ui.define(
         var password = this.byId("password");
         var _username = username.getValue().trim();
         var _password = password.getValue().trim();
-        console.log(_username);
         var user = arr.find((x) => x.username === _username);
         if (user === undefined) {
           MessageToast.show("User name or password is incorrect");
@@ -72,7 +68,6 @@ sap.ui.define(
             localStorage.setItem("role", user.role);
             var oRouter = this.getOwnerComponent().getRouter();
             oRouter.navTo("Dashboard");
-            
           } else {
             MessageToast.show("User name or password is incorrect");
           }

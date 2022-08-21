@@ -20,10 +20,7 @@
 		<TileContent id="_IDGenTileContent1" />
 	</GenericTile>
     	<GenericTile id="_IDGenGenericTile2" class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" header="Employee List"
-		subheader="All Employee List" press="press" frameType= "TwoByOne" visible="{
-    path : '{editModel>/editmode}',
-    formatter : '.myFormatter'
-}">
+		subheader="All Employee List" press="press" frameType= "TwoByOne" visible="{editModel>/editmode}">
 		<TileContent id="_IDGenTileContent2" />
 	</GenericTile>
         <footer>
