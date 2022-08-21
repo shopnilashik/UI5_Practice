@@ -1,0 +1,19 @@
+<mvc:View controllerName="project1.project1.controller.Login"
+    xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+    xmlns="sap.m">
+    <Page id="page" title="">
+             
+  <content>
+          
+   <VBox id="_IDGenVBox1" fitContainer="true" justifyContent="Center" alignItems="Center" alignContent="Center">
+    <items>
+      
+     <Input id="username" placeholder="User Name"/>
+     <Input id="password" placeholder="Password" type="Password"/>
+     <Button id="_IDGenButton1" width="12rem" text="Login" type="Emphasized" press="onLoginTap" />
+    </items>
+   </VBox>
+ 
+  </content>
+    </Page>
+</mvc:View>

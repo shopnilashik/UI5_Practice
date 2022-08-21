@@ -94,13 +94,23 @@
       "routes": [
         {
           "name": "RouteView1",
-          "pattern": "",
+          "pattern": "View1",
           "target": ["TargetView1"]
         },
         {
           "name": "details",
           "pattern": "details/{id}",
           "target": ["TargetDetails"]
+        },
+        {
+          "name": "Login",
+          "pattern": "",
+          "target": ["TargetLogin"]
+        },
+        {
+          "name": "Dashboard",
+          "pattern": "Dashboard",
+          "target": ["TargetDashboard"]
         }
       ],
       "targets": {
@@ -117,6 +127,20 @@
           "clearControlAggregation": false,
           "viewId": "Details",
           "viewName": "Details"
+        },
+        "TargetLogin": {
+          "viewType": "XML",
+          "transition": "slide",
+          "clearControlAggregation": false,
+          "viewId": "Login",
+          "viewName": "Login"
+        },
+        "TargetDashboard": {
+          "viewType": "XML",
+          "transition": "show",
+          "clearControlAggregation": true,
+          "viewId": "Dashboard",
+          "viewName": "Dashboard"
         }
       }
     },

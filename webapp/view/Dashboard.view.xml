@@ -1,0 +1,40 @@
+<mvc:View controllerName="project1.project1.controller.Dashboard"
+    xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+    xmlns="sap.m">
+     <Page id="_IDGenPage1" title="Login Form">
+        <Page id="page" title="{oVisibleModel>/mode}">
+    
+								<OverflowToolbar id="_IDGenOverflowToolbar1">
+									<content>
+										<ToolbarSpacer id="_IDGenToolbarSpacer1"/>
+										<Button
+											id="refreshUsersButton"
+											icon="sap-icon://refresh"
+											tooltip="{i18n>refreshButtonText}"
+											press=".onRefresh"/>
+									</content>
+								</OverflowToolbar>
+							
+    	<GenericTile id="_IDGenGenericTile1" class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" header="Sales Report"
+		subheader="All Sales Report" press="press" frameType= "Auto">
+		<TileContent id="_IDGenTileContent1" />
+	</GenericTile>
+    	<GenericTile id="_IDGenGenericTile2" class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" header="Employee List"
+		subheader="All Employee List" press="press" frameType= "TwoByOne" visible="{
+    path : '{editModel>/editmode}',
+    formatter : '.myFormatter'
+}">
+		<TileContent id="_IDGenTileContent2" />
+	</GenericTile>
+        <footer>
+                <Bar id="_IDGenBar1">
+                    <contentRight>
+                        <Button id="app_logout" text="Logout" type="Accept"
+                         press="onLogoutPress" />
+                    </contentRight>
+        </Bar>
+    </footer>
+     </Page>
+ 
+ </Page>
+</mvc:View>
