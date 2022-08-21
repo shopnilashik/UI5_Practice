@@ -62,5 +62,13 @@
                     </items>
                 </Table>
             </content>
+             <footer>
+                <Bar id="_IDGenBar1">
+                    <contentRight>
+                        <Button id="app_logout" text="Dashboard" type="Accept"
+                         press="navToDashboard" />
+                    </contentRight>
+        </Bar>
+    </footer>
     </Page>
 </mvc:View>

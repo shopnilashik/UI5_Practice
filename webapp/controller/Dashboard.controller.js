@@ -53,6 +53,10 @@ sap.ui.define(
             oEditModel.setProperty("/editmode", false);
           }
         },
+        press: function () { 
+            var oRouter = this.getOwnerComponent().getRouter();
+            oRouter.navTo("RouteView1", {}, true);
+        }
        
       }
     );
