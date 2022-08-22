@@ -3,35 +3,62 @@
    xmlns="sap.m"
    xmlns:core="sap.ui.core" xmlns:c="sap.ui.core" xmlns:l="sap.ui.layout" xmlns:ui="sap.ui" 
    xmlns:f="sap.ui.layout.form">
-   <Dialog
+  <Dialog
       id="helloDialog" title="Add Product" >
-   
-        <Label id="display_label_name" text="{i18n>name}" 
-          labelFor="display_text_name"/>
-          <Input id="input_name" />
+      <f:SimpleForm id="SimpleFormChange354"
+			editable="true"
+			layout="ResponsiveGridLayout"
+			labelSpanXL="3"
+			labelSpanL="3"
+			labelSpanM="3"
+			labelSpanS="12"
+			adjustLabelSpan="false"
+			emptySpanXL="4"
+			emptySpanL="4"
+			emptySpanM="4"
+			emptySpanS="0"
+			columnsXL="1"
+			columnsL="1"
+			columnsM="1"
+			singleContainerFullSize="true" >
+			<f:content>
+       <Text id="error" text="Enter all fields..." visible="{oSaveBtn>/savemode}"/>
+				 <Label id="display_label_name" text="{i18n>name}" required="true"
+          labelFor="display_text_name" />
+          <Input id="input_name" 
+			     liveChange= ".onNameChange"/>
         
-        <Label id="display_label_description" text="{i18n>description}" 
+        <Label id="display_label_description" text="{i18n>description}" required="true"
           labelFor="display_text_"/>
-          <Input id="input_description" />
+      
+          <TextArea id="input_description"  showExceededText="true" 
+          maxLength="20" width="100%" liveChange="handleLiveChange"  
+           valueLiveUpdate="true"/>
 
-        <Label id="display_label_price" text="{i18n>price}" 
+        <Label id="display_label_price" text="{i18n>price}" required="true" 
           labelFor="display_text_price"/>
-          <Input id="input_price" />
+          <Input id="input_price" valueLiveUpdate="true"  liveChange="validateprice"
+           type="Number" />
         
-        <Label id="display_label_stock" text="{i18n>stock}" 
+        <Label id="display_label_stock" text="{i18n>stock}" required="true"
           labelFor="display_text_stock"/>
-          <Input id="input_stock" />
-
-      	<ComboBox id="input_supplier"
-				items="{suppliers>/supplier}">
+          <Input id="input_stock" type="Number" liveChange="validateStock"/>
+       
+        <Label id="display_label_supplier" text="{i18n>supplier}" required="true"
+        labelFor="display_text_supplier
+        "/>
+      	<ComboBox id="input_supplier" change="validateSupplier"
+				items="{suppliers>/supplier}" >
 				<core:Item id="_IDGenItem1" key="{suppliers>id}" text="{suppliers>supplier_name}" />
 			  </ComboBox>
+			</f:content>
+		</f:SimpleForm>
 
       <Bar id="_IDGenBar1">
      
         <contentRight>
-          <Button id="app_save_button" text="{i18n>save}" type="Accept"
-              icon="sap-icon://save" press="onSavePressed"
+          <Button id="save_button" text="{i18n>save}" type="Accept"
+              icon="sap-icon://save" press="onSavePressed" 
               />
 
           <Button id="app_cancel_button" text="{i18n>cancel}" type="Reject"

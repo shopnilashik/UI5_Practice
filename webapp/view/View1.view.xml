@@ -48,7 +48,11 @@
                         <Text id="text_description" text="{description}" visible="true"/> 
                         </VBox>
                         <VBox>
-                        <Text id="text_price" text="{price}" visible="true"/> 
+                        
+                        <Text id="_IDGenText1"  text="{ 
+                            parts: [{path:'price'}, {path:'oCurrency>/currency'}], type: 'sap.ui.model.type.Currency',
+                            formatOptions: {showMeasure: true}
+                        }" />
                         </VBox>
                         <VBox>
                         <Text id="text_stock" text="{stock}" visible="true"/>

@@ -15,7 +15,11 @@ sap.ui.define(
             editmode: false,
             textMode: true,
           });
+          let oCurrency = new JSONModel({
+            currency:"$"
+          });
           this.getView().setModel(oEditModel, "editModel");
+          this.getView().setModel(oCurrency, "oCurrency");
           var oRouter = sap.ui.core.UIComponent.getRouterFor(this);
           oRouter
             .getRoute("details")
@@ -47,6 +51,7 @@ sap.ui.define(
           } else {
             var oRouter = this.getOwnerComponent().getRouter();
             oRouter.navTo("App", {}, true);
+            this._toggleEdit(false, true);
           }
         },
         onSavePressed: function () {

@@ -55,7 +55,12 @@
                 <Label id="display_label_price" text="{i18n>price}" 
                 labelFor="display_text_price"/>
                 <VBox id="_IDGenVBox2">
-                <Text id="display_text_price" text="{price}" visible="{editModel>/textMode}"/>
+                <Text id="_IDGenText1" text="{
+				parts: ['price', 'oCurrency>/currency'],
+				type: 'sap.ui.model.type.Currency',
+				formatOptions: {showMeasure: true}
+			}" />
+               
                 <Input id="input_price" value="{price}" visible="{editModel>/editmode}"/>
                 </VBox>
                 

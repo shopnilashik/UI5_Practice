@@ -4,11 +4,20 @@ sap.ui.define(
     "sap/ui/model/json/JSONModel",
     "sap/m/MessageBox",
     "sap/ui/core/Fragment",
+    "sap/ui/core/library",
+    "sap/m/MessageToast",
   ],
   /**
    * @param {typeof sap.ui.core.mvc.Controller} Controller
    */
-  function (Controller, JSONModel, MessageBox, Fragment) {
+  function (
+    Controller,
+    JSONModel,
+    MessageBox,
+    Fragment,
+    coreLibrary,
+    MessageToast
+  ) {
     "use strict";
 
     return Controller.extend("project1.project1.controller.View1", {
@@ -16,7 +25,15 @@ sap.ui.define(
         let oEditModel = new JSONModel({
           editmode: false,
         });
+        let oSaveBtn = new JSONModel({
+          savemode: false,
+        });
+        let oCurrency = new JSONModel({
+          currency: "$",
+        });
         var oSupplier = this.getView().getModel("suppliers");
+        this.getView().setModel(oCurrency, "oCurrency");
+        this.getView().setModel(oSaveBtn, "oSaveBtn");
         console.log(oSupplier);
         this.getView().setModel(oEditModel, "editModel");
         this.oData = new JSONModel({
@@ -28,7 +45,6 @@ sap.ui.define(
         });
         this.getView().setModel(this.oData, "editDataModel");
       },
-      
 
       _toggleEdit: function (editStn, saveStn) {
         let oEditModel = this.getView().getModel("editModel");
@@ -79,14 +95,24 @@ sap.ui.define(
         var buf = new Uint8Array(6);
         window.crypto.getRandomValues(buf);
         var id = btoa(String.fromCharCode.apply(null, buf));
-
-        this.onCreate({ id, name, description, price, stock, supplier });
-        id = "";
-        _name.setValue("");
-        _description.setValue("");
-        _price.setValue("");
-        _stock.setValue("");
-        _supplier.setValue("");
+        if (name.length > 0 && description.length > 0 && price.length > 0 &&
+          price.length > 0 && stock.length && supplier.length > 0) {
+          this.onCreate({ id, name, description, price, stock, supplier });
+          id = "";
+          _name.setValue("");
+          _description.setValue("");
+          _price.setValue("");
+          _stock.setValue("");
+          _supplier.setValue("");
+        } else {
+          console.log("Enter All data");
+          let oSaveBtn = this.getView().getModel("oSaveBtn");
+          oSaveBtn.setProperty("/savemode", true);
+          MessageToast.show("Enter All Fields", {
+            duration: 3000,
+            animationDuration: 1000,
+          });
+        }
       },
       onDeleteButtonPressed: function (oEvent) {
         let oModel = this.getView().getModel();
@@ -150,7 +176,7 @@ sap.ui.define(
           });
         }
 
-        // this.pDialog.getModel.setData(this.product);
+  
         this.pDialog.then(function (oDialog) {
           oDialog.open();
         });
@@ -163,10 +189,56 @@ sap.ui.define(
           }.bind(this)
         );
       },
-      navToDashboard: function () { 
-         var oRouter = this.getOwnerComponent().getRouter();
-         oRouter.navTo("Dashboard", {}, true);
-      }
+      navToDashboard: function () {
+        var oRouter = this.getOwnerComponent().getRouter();
+        oRouter.navTo("Dashboard", {}, true);
+      },
+      validateprice: function () {
+        var _price = this.byId("input_price");
+        if (_price.getValue() > 0) {
+          this.price = true;
+        }
+      },
+      validateSupplier: function () {
+        this.supplier = true;
+      },
+      validateStock: function () {
+        var _stock = this.byId("input_stock");
+        if (_stock.getValue()) {
+          this.stock = true;
+        }
+      },
+
+      onNameChange: function (oEvent) {
+        var _name = this.byId("input_name");
+        if (_name.getValue().length < 4) {
+          _name
+            .setValueState(sap.ui.core.ValueState.Error)
+            .setValueStateText("Name has to be at least 4 characters");
+        }
+        if (_name.getValue().length > 12) {
+          _name
+            .setValueState(sap.ui.core.ValueState.Error)
+            .setValueStateText("Name not more than 12 characters");
+        }
+        if (_name.getValue().length > 4 && _name.getValue().length < 12) {
+          _name.setValueState(sap.ui.core.ValueState.Success);
+          this.name = true;
+        }
+      },
+
+      handleLiveChange: function (oEvent) {
+        this.description = true;
+
+        var ValueState = coreLibrary.ValueState;
+        var oTextArea = oEvent.getSource(),
+          iValueLength = oTextArea.getValue().length,
+          iMaxLength = oTextArea.getMaxLength(),
+          sState =
+            iValueLength > iMaxLength ? ValueState.Warning : ValueState.None;
+
+        oTextArea.setValueState(sState);
+      },
     });
   }
 );
