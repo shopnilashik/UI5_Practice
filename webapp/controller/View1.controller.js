@@ -24,6 +24,7 @@ sap.ui.define(
       onInit: function () {
         let oEditModel = new JSONModel({
           editmode: false,
+          column:true
         });
         let oSaveBtn = new JSONModel({
           savemode: false,
@@ -34,7 +35,6 @@ sap.ui.define(
         var oSupplier = this.getView().getModel("suppliers");
         this.getView().setModel(oCurrency, "oCurrency");
         this.getView().setModel(oSaveBtn, "oSaveBtn");
-        console.log(oSupplier);
         this.getView().setModel(oEditModel, "editModel");
         this.oData = new JSONModel({
           id: "",
@@ -44,6 +44,13 @@ sap.ui.define(
           stock: "",
         });
         this.getView().setModel(this.oData, "editDataModel");
+        
+        this.user = sessionStorage.getItem("role"); 
+        console.log(this.user)
+        if (this.user === "admin") { 
+          var column = this.byId("main_column_action");
+          column.setVisible(false);
+        }
       },
 
       _toggleEdit: function (editStn, saveStn) {

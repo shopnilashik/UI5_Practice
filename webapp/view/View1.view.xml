@@ -31,8 +31,8 @@
                         <Column id="main_column_supplier">
                             <Text id="main_text_supplier" text="{i18n>supplier}"/>
                         </Column>
-                          <Column id="main_column_action">
-                            <Text id="main_text_action" text="{i18n>action}"/>
+                          <Column id="main_column_action" visible="{editModel>/column}">
+                            <Text id="main_text_action" text="{i18n>action}" />
                         </Column>
                         
                     </columns>
