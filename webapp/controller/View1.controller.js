@@ -106,8 +106,6 @@ sap.ui.define(
           _supplier.setValue("");
         } else {
           console.log("Enter All data");
-          let oSaveBtn = this.getView().getModel("oSaveBtn");
-          oSaveBtn.setProperty("/savemode", true);
           MessageToast.show("Enter All Fields", {
             duration: 3000,
             animationDuration: 1000,
@@ -239,6 +237,7 @@ sap.ui.define(
 
         oTextArea.setValueState(sState);
       },
+      
     });
   }
 );

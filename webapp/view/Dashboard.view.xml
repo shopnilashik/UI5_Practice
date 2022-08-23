@@ -3,17 +3,6 @@
     xmlns="sap.m">
      <Page id="_IDGenPage1" title="Login Form">
         <Page id="page" title="{oVisibleModel>/mode}">
-    
-								<OverflowToolbar id="_IDGenOverflowToolbar1">
-									<content>
-										<ToolbarSpacer id="_IDGenToolbarSpacer1"/>
-										<Button
-											id="refreshUsersButton"
-											icon="sap-icon://refresh"
-											tooltip="{i18n>refreshButtonText}"
-											press=".onRefresh"/>
-									</content>
-								</OverflowToolbar>
 							
     	<GenericTile id="_IDGenGenericTile1" class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" header="All Products"
 		subheader="All Products List" press="press" frameType= "Auto">

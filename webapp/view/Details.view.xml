@@ -40,7 +40,8 @@
                 labelFor="display_text_name"/>
                 <VBox id="display_vbox1">
                 <Text id="display_text_name" text="{name}" visible="{editModel>/textMode}"/>
-                <Input id="input_name" value="{name}" visible="{editModel>/editmode}"/>
+                <Input id="input_name" value="{name}" liveChange= ".onNameChange"
+                visible="{editModel>/editmode}"/>
                 </VBox>
 
                
@@ -48,7 +49,9 @@
                 labelFor="display_text_description"/>
                 <VBox id="_IDGenVBox1">
                 <Text id="display_text_description" text="{description}" visible="{editModel>/textMode}"/>
-                <Input  id="input_description" value="{description}" visible="{editModel>/editmode}"/>
+                <TextArea id="input_description"  showExceededText="true" value="{description}"
+                maxLength="20" width="100%" liveChange="handleLiveChange"  
+                valueLiveUpdate="true" visible="{editModel>/editmode}"/>
                 </VBox>
 
                 
@@ -59,9 +62,11 @@
 				parts: ['price', 'oCurrency>/currency'],
 				type: 'sap.ui.model.type.Currency',
 				formatOptions: {showMeasure: true}
-			}" />
+			    }" visible="{editModel>/textMode}"/>
                
-                <Input id="input_price" value="{price}" visible="{editModel>/editmode}"/>
+                <Input id="input_price" value="{price}" valueLiveUpdate="true"  liveChange="validateprice"
+                type="Number"
+                visible="{editModel>/editmode}"/>
                 </VBox>
                 
                 
@@ -69,7 +74,8 @@
                 labelFor="display_text_stock"/>
                  <VBox id="_IDGenVBox3">
                 <Text id="display_text_stock" text="{stock}" visible="{editModel>/textMode}"/>
-                <Input id="input_stock" value="{stock}" visible="{editModel>/editmode}"/>
+                <Input id="input_stock" value="{stock}" type="Number" liveChange="validateStock"
+                visible="{editModel>/editmode}"/>
                 </VBox>
 
                  <Label id="display_label_supplier" text="{i18n>supplier}"

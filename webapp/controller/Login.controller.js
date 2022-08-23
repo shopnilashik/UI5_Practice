@@ -4,16 +4,16 @@ sap.ui.define(
     "sap/ui/model/json/JSONModel",
     "sap/m/MessageBox",
     "sap/ui/core/Fragment",
+    "sap/m/MessageToast",
   ],
   /**
    * @param {typeof sap.ui.core.mvc.Controller} Controller
    */
-  function (Controller, JSONModel, MessageBox, Fragment) {
+  function (Controller, JSONModel, MessageBox, Fragment, MessageToast) {
     "use strict";
 
     return Controller.extend("project1.project1.controller.View1", {
       onInit: function () {
-        
         var oUsers = new JSONModel({
           users: [
             {
@@ -34,7 +34,7 @@ sap.ui.define(
         this.getView().setModel(oVisibleModel, "oVisibleModel");
         this.getView().setModel(oUsers, "oUsersModel");
         var test = this.getView().getModel("oUsersModel");
-       
+
         this.oData = test.getData();
         this.user = localStorage.getItem("username");
         this.user = sessionStorage.getItem("username");
@@ -46,9 +46,7 @@ sap.ui.define(
           console.log("User Found");
           var oRouter = this.getOwnerComponent().getRouter();
           oRouter.navTo("Dashboard", {}, true);
-          
         }
-        
       },
       onLoginTap: function () {
         var arr = [];
