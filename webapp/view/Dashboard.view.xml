@@ -15,7 +15,7 @@
         <footer>
                 <Bar id="_IDGenBar1">
                     <contentRight>
-                        <Button id="app_logout" text="Logout" type="Accept"
+                        <Button id="app_logout" text="Logout" type="Reject"
                          press="onLogoutPress" />
                     </contentRight>
         </Bar>

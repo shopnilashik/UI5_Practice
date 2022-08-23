@@ -10,7 +10,7 @@
                 <ToolbarSpacer id="_IDGenToolbarSpacer1"/>
                 <Button id="app_edit_button" text="{i18n>edit}" type="Emphasized"
             icon="sap-icon://edit" press="onEditPressed"
-            visible="{= !${editModel>/editmode}}"/>
+            visible="{= ${editModel>/adminMode}}"/>
             </OverflowToolbar>
             </customHeader>
            <f:SimpleForm id="display_simpleform"

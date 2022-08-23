@@ -15,6 +15,7 @@ sap.ui.define(
           let oEditModel = new JSONModel({
             editmode: false,
             textMode: true,
+            adminMode:false
           });
           let oCurrency = new JSONModel({
             currency: "$",
@@ -32,6 +33,15 @@ sap.ui.define(
               "/" +
               window.decodeURIComponent(oEvent.getParameter("arguments").id),
           });
+             this.user = sessionStorage.getItem("role");
+          if (this.user === "admin") {
+               let oEditModel = this.getView().getModel("editModel");
+               oEditModel.setProperty("/adminMode", true);
+          } else {
+            let oEditModel = this.getView().getModel("editModel");
+               console.log("onno user");
+               oEditModel.setProperty("/adminMode", false);
+             }
         },
         onEditPressed: function () {
           this._toggleEdit(true, false);

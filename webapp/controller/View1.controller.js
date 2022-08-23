@@ -24,7 +24,7 @@ sap.ui.define(
       onInit: function () {
         let oEditModel = new JSONModel({
           editmode: false,
-          column:true
+          column: false,
         });
         let oSaveBtn = new JSONModel({
           savemode: false,
@@ -44,15 +44,21 @@ sap.ui.define(
           stock: "",
         });
         this.getView().setModel(this.oData, "editDataModel");
-        
-        this.user = sessionStorage.getItem("role"); 
-        console.log(this.user)
-        if (this.user === "admin") { 
-          var column = this.byId("main_column_action");
-          column.setVisible(false);
+        this.getOwnerComponent()
+          .getRouter()
+          .getRoute("RouteView1")
+          .attachPatternMatched(this._onPatternMatched, this);
+      },
+      _onPatternMatched: function () {
+        let oEditModel = this.getView().getModel("editModel");
+        this.user = sessionStorage.getItem("role");
+        if (this.user === "admin") {
+          oEditModel.setProperty("/column", true);
+        } else {
+          console.log("onno user");
+          oEditModel.setProperty("/column", false);
         }
       },
-
       _toggleEdit: function (editStn, saveStn) {
         let oEditModel = this.getView().getModel("editModel");
 
@@ -102,8 +108,14 @@ sap.ui.define(
         var buf = new Uint8Array(6);
         window.crypto.getRandomValues(buf);
         var id = btoa(String.fromCharCode.apply(null, buf));
-        if (name.length > 0 && description.length > 0 && price.length > 0 &&
-          price.length > 0 && stock.length && supplier.length > 0) {
+        if (
+          name.length > 0 &&
+          description.length > 0 &&
+          price.length > 0 &&
+          price.length > 0 &&
+          stock.length &&
+          supplier.length > 0
+        ) {
           this.onCreate({ id, name, description, price, stock, supplier });
           id = "";
           _name.setValue("");
@@ -181,7 +193,6 @@ sap.ui.define(
           });
         }
 
-  
         this.pDialog.then(function (oDialog) {
           oDialog.open();
         });
@@ -244,7 +255,12 @@ sap.ui.define(
 
         oTextArea.setValueState(sState);
       },
-      
+      onLogoutPress: function () {
+        var oRouter = this.getOwnerComponent().getRouter();
+        oRouter.navTo("Login");
+        localStorage.setItem("role", "none");
+        sessionStorage.setItem("role", "none");
+      },
     });
   }
 );
